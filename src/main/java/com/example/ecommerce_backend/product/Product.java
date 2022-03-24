@@ -13,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import com.example.ecommerce_backend.productCategory.ProductCategory;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -58,7 +59,8 @@ public class Product {
     @Column(name = "updated_at")
     private Date updatedAt;
 
-    @ManyToOne
+    @JsonIgnore
+    @ManyToOne()
     @JoinColumn(name = "category_id", nullable = false)
     private ProductCategory category;
 }
